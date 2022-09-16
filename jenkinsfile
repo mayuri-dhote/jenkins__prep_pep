@@ -4,18 +4,18 @@ pipeline {
     stages{
 
         stage {
-            step {
+            steps {
                 sh 'mvn build'
             }
         
              }
         stage {
-            step {
+            steps {
                 sh 'mvn clean test'
             }
         }
         stage {
-            step {
+            steps {
                 sh 'mvn clean package'
             }
         }
