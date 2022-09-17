@@ -1,25 +1,35 @@
 pipeline {
-    agent none
+     agent {
+        label 'jenkins'
+    }
 
     stages{
 
-        stage {
-            step {
-                sh 'mvn build'
+        stage ('build') {
+            steps {
+                sh 'mvn compile'
             }
         
              }
-        stage {
-            step {
+        stage ('test') {
+            steps {
                 sh 'mvn clean test'
             }
         }
-        stage {
-            step {
+        stage ('package') {
+            steps {
                 sh 'mvn clean package'
             }
         }
 
 
     }
+    post {
+    success {
+      sh 'echo "The Pipeline has passed"'
+    }
+    failure {
+        sh 'echo "The Pipeline has failed"'
+    }
+  }
 }
