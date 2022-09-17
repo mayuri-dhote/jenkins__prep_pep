@@ -32,4 +32,3 @@ pipeline {
         sh 'echo "The Pipeline has failed"'
     }
   }
-}
