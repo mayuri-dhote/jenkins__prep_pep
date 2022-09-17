@@ -24,4 +24,12 @@ pipeline {
 
 
     }
+    post {
+    success {
+      sh 'echo "The Pipeline has passed"'
+    }
+    failure {
+        sh 'echo "The Pipeline has failed"'
+    }
+  }
 }
